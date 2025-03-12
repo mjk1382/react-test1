@@ -1,33 +1,64 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-const tick=()=>{
-  const elem=(
-    <div>
-    <h1>hi guys</h1>
-    <h2> it is {new Date().toLocaleTimeString()}</h2>
-    </div>
-  )
- ReactDOM.createRoot(document.getElementById("root")).render(elem);
+//  import React from "react";
+//  import ReactDOM from "react-dom/client";
 
-}
-setInterval(()=>{
-  tick()
-},1000)
+// class App extends React.Component{
+//   render(){
+//     return(
+//       <div>
+//          <h1>salammmmmm barikalllllllllllll</h1>
+//          <h2>{new Date().toLocaleTimeString()}</h2>
+//      </div>
+//     )
+//   }
+// }
 
-
-
-
-
-// import React from "react";
-// import ReactDOM from "react-dom/client";
 // const set=()=>{
-//   const time=(<div>
-//     <h1>salammmmmm barikalllllllllllll</h1>
-//     <h2>{new Date().toLocaleTimeString()}</h2>
-//   </div>)
+
 //   const root=ReactDOM.createRoot(document.getElementById('root'))
-//   root.render(time)
+//   root.render(<App/>)
 // }
 // setInterval(set,1000)
+
+
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+class Text extends React.Component{
+  render(){
+    return(
+      <h1>salammmmmm barikalllllllllllll</h1>
+
+    )
+  }
+}
+class Timer extends React.Component{
+  render(){
+    return(
+      <h2>{new Date().toLocaleTimeString()}</h2>
+
+    )
+  }
+}
+
+class App extends React.Component{
+ render(){
+   return(
+     <div>
+      <Text/>
+        <Timer/>
+    </div>
+   )
+ }
+}
+
+const set=()=>{
+
+ const root=ReactDOM.createRoot(document.getElementById('root'))
+ root.render(<App/>)
+}
+setInterval(set,1000)
+
+
+
 
 
