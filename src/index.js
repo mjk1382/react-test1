@@ -24,46 +24,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import './style.css'
-class Text extends React.Component{
- 
-  render(){
-    return(
-      <h1 className="main">salammmmmm barikalllllllllllll</h1>
+import App from "./App";
 
-    )
-  }
-}
-class Timer extends React.Component{
-  constructor(){
-    super()
-    this.state={
-    time:new Date().toLocaleTimeString()
-    }
-  }
-  render(){
-    setInterval(() => {
-      this.setState({
-        time:new Date().toLocaleTimeString()
 
-      })
-    }, 1000);
-    return(
-      <h2 className="timer">{new Date().toLocaleTimeString()}</h2>
 
-    )
-  }
-}
-
-class App extends React.Component{
- render(){
-   return(
-     <div>
-      <Text/>
-        <Timer/>
-    </div>
-   )
- }
-}
 
 
  const root=ReactDOM.createRoot(document.getElementById('root'))
