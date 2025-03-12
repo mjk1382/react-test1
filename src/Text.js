@@ -7,7 +7,7 @@ class Text extends React.Component{
  
   render(){
     return(
-      <h1 className="main">salammmmmm barikalllllllllllll</h1>
+      <h1 className="main">{this.props.title}</h1>
 
     )
   }

@@ -5,6 +5,7 @@ import './style.css'
 class Timer extends React.Component{
     constructor(){
         super();
+      
         this.state = {
           time : 100
         }
@@ -24,9 +25,10 @@ class Timer extends React.Component{
       }
       render(){
         
-        return(
+        return(<>
           <h2 className="timer">{this.state.time}</h2>
-    
+          <button onClick={this.props.handelText}>change</button>
+          </>
         )
       }
     
