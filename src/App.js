@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React ,{useState,useEffect} from "react";
 import ReactDOM from "react-dom/client";
 import './style.css'
 import Text from "./Text";
@@ -26,14 +26,18 @@ import Timer from "./timer";
 //  }
 // }
 const App = ()=>{
-    const[title,setState]=useState("salam foe en")
-    const handelText=()=>{
-        setState('supriseeee123')
+    const[islight,setislight]=useState(false)
+    useEffect(()=>{
+        console.log("effect");
+        
+    },[islight])
+
+    const handelislight=()=>{
+        setislight(!islight)
     }
     return(
-        <div>
-     <Text title={title}/>
-        <Timer handelText={handelText}/>
+        <div className="main" style={{background:islight?"white":"black"}}>
+        <Timer islight={islight}handelislight={handelislight}/>
         </div>
     )
 
