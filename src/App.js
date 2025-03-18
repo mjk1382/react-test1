@@ -4,6 +4,7 @@ import timerList from "./timerList";
 import './style.css'
 import Text from "./Text";
 import Timer from "./timer";
+import {TextContext} from "./testContext"
 // class App extends React.Component{
 //     constructor(){
 //         super()
@@ -39,10 +40,15 @@ const App = ()=>{
         setislight(!islight)
     }
     return(
+        <TextContext.Provider value={{
+            timeArr:timeArr,
+            setTimeArr:setTimeArr
+        }}>
         <div className="main" style={{background:islight?"white":"black"}}>
-        <Timer islight={islight}handelislight={handelislight}timeArr={timeArr} setTimeArr={setTimeArr}/>
+        <Timer islight={islight}handelislight={handelislight} setTimeArr={setTimeArr}/>
         
         </div>
+        </TextContext.Provider>
     )
 
 }

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import timerList from "./timerList";
 import './style.css'
+import { TextContext } from "./testContext";
  var interval
 class Timer extends React.Component{
     constructor(){
@@ -14,6 +15,8 @@ class Timer extends React.Component{
           isStart:false
         }
       }
+
+      static contextType = TextContext
     startInterval=()=>{
         if(this.state.isStart==false){
             this.setState({
@@ -73,14 +76,15 @@ class Timer extends React.Component{
      
     }
     handelsavetime=()=>{
+      
       let newTime=`${this.state.hour > 9 ? this.state.hour: "0"+this.state.hour} : ${this.state.minute > 9 ? this.state.minute: "0"+this.state.minute} : ${this.state.second > 9 ? this.state.second: "0"+this.state.second}`
-      this.props.setTimeArr([...this.props.timeArr,newTime])
+      this.context.setTimeArr([...this.context.timeArr,newTime])
     }
 
       render(){
         
         return(<>
-          <h2 className="timer" onClick={this.handelsavetime}>
+          <h2  className="timer" onClick={this.handelsavetime} > 
             {`${this.state.hour > 9 ? this.state.hour: "0"+this.state.hour} : ${this.state.minute > 9 ? this.state.minute: "0"+this.state.minute} : ${this.state.second > 9 ? this.state.second: "0"+this.state.second}`}
             </h2>
           <button onClick={this.props.handelText}>change</button>
@@ -89,7 +93,7 @@ class Timer extends React.Component{
           <button onClick={this.resetInterval}>reset</button>
           <button  onClick={this.props.handelislight}style={{background:this.props.handelislight?"black":"white", color:this.props.handelislight?"white":"black"}}>change color</button>
           <timerList>
-            {this.props.timeArr}
+            {this.context.timeArr}
         </timerList>
           </>
           
