@@ -41,12 +41,14 @@ const App = ()=>{
     }
     return(
         <TextContext.Provider value={{
-            timeArr:timeArr,
-            setTimeArr:setTimeArr
+            timeArr,
+            setTimeArr
         }}>
         <div className="main" style={{background:islight?"white":"black"}}>
         <Timer islight={islight}handelislight={handelislight} setTimeArr={setTimeArr}/>
-        
+        <timerList>
+             {timeArr}
+         </timerList>
         </div>
         </TextContext.Provider>
     )

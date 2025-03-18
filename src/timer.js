@@ -76,8 +76,8 @@ class Timer extends React.Component{
      
     }
     handelsavetime=()=>{
-      
-      let newTime=`${this.state.hour > 9 ? this.state.hour: "0"+this.state.hour} : ${this.state.minute > 9 ? this.state.minute: "0"+this.state.minute} : ${this.state.second > 9 ? this.state.second: "0"+this.state.second}`
+
+      let newTime=document.querySelector(".timer").innerHTML
       this.context.setTimeArr([...this.context.timeArr,newTime])
     }
 
@@ -92,9 +92,7 @@ class Timer extends React.Component{
           <button onClick={this.stopInterval}>stop</button>
           <button onClick={this.resetInterval}>reset</button>
           <button  onClick={this.props.handelislight}style={{background:this.props.handelislight?"black":"white", color:this.props.handelislight?"white":"black"}}>change color</button>
-          <timerList>
-            {this.context.timeArr}
-        </timerList>
+    
           </>
           
         )
