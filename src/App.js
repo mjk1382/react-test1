@@ -1,5 +1,6 @@
 import React ,{useState,useEffect} from "react";
 import ReactDOM from "react-dom/client";
+import timerList from "./timerList";
 import './style.css'
 import Text from "./Text";
 import Timer from "./timer";
@@ -27,6 +28,8 @@ import Timer from "./timer";
 // }
 const App = ()=>{
     const[islight,setislight]=useState(false)
+    const[timeArr,setTimeArr]=useState([])
+
     useEffect(()=>{
         console.log("effect");
         
@@ -37,7 +40,8 @@ const App = ()=>{
     }
     return(
         <div className="main" style={{background:islight?"white":"black"}}>
-        <Timer islight={islight}handelislight={handelislight}/>
+        <Timer islight={islight}handelislight={handelislight}timeArr={timeArr} setTimeArr={setTimeArr}/>
+        
         </div>
     )
 
